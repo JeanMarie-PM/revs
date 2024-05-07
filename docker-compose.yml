@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_NAME=mydb
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+
+  db:
+    image: "postgres:15"
+    environment:
+      - POSTGRES_DB=mydb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persistent storage for Postgres data
+
+volumes:
+  postgres_data: {}
