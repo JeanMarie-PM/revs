@@ -26,8 +26,8 @@ class ReporterTest(TestCase):
             baker.make(Reporter).save()
 
     def test_all_tables_exist(self):
-        # dump_test_db_tables()
-        pass
+        print("Tables in test db")
+        dump_test_db_tables()
 
     def test_initial_state_has_log_entries(self):
         self.assertGreater(Reporter.objects.all().count(), 0)

@@ -7,6 +7,6 @@ fi
 python manage.py makemigrations
 
 python manage.py migrate -v 2
-# python manage.py test
+python manage.py test
 # python manage.py runserver 0.0.0.0:8000
 
